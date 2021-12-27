@@ -42,7 +42,7 @@ const timer = setInterval(() => {
 // });
 
 app.get('/', (req, res)=>{
-    res.redirect('blogs');
+    res.redirect('/blogs');
 });
 
 app.get('/blogs',(req, res)=>{
