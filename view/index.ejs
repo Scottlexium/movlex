@@ -14,7 +14,8 @@
     <h1>Blog contents</h1>
     <div class="blog-items">
         
-        <div class="items">
+        <blockquote class="items">
+            
             
                 <% if(blogs.length > 0) {%>
                     <% blogs.forEach(blog => { %>
@@ -27,7 +28,7 @@
                     <p>There are no blogs to display</p>
                 <% } %>
             
-        </div>
+        </blockquote>
     </div>
 </body>
 </html>

@@ -80,24 +80,60 @@ form button{
     padding: 20px;
     display: flex;
     width: 90%;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    text-overflow: ellipsis;
+
 }
 .items h3{
     font-size: 20px;
 }
 .items .snipper-p{
-    font-size: 18px;
+    font-size: 16px;
+    text-overflow: ellipsis;
 }
 .posts{
-    width: 200px;
-    max-width: 50%;
+    width: 400px;
     background-color: white;
-    box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.194);
-    padding: 20px;
-    height: 200px;
+    /* box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.194); */
+    padding: 20px 20px;
+    height: 100px;
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content: center;
+    text-align: left;
+    margin-left: 10px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    position: relative;
+}
+
+.posts
+{
+   text-decoration:none;
+}
+
+.posts.underlined
+{
+   text-decoration:underline;
+}
+
+.posts::before{
+    content: "";
+    position: absolute;
+    border: solid 1px rgb(0, 41, 153);
+    width: 8px;
+    height: 100px;
+    background-color: rgb(0, 41, 153);
+    left: 0;
+    top: 20%;
+    right: 0;
+    height: 70%;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 .items .body-p{
     font-size: 14px;
