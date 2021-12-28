@@ -12,6 +12,7 @@ nav{
     background-color: white;
     box-shadow: 2px 2px 20px 2px rgba(0,0,0,0.189);
     height: 70px;
+    z-index: 9999;
 }
 .nav-container{
     width: 100%;
