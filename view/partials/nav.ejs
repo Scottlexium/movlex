@@ -8,6 +8,41 @@
             <a href="/blogs">Blogs</a>
             <a href="/create">Create</a>
         </ul>
-        <button class="mobile-nav">menu</button>
+        
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">
+                <img src="https://img.icons8.com/color/100/000000/menu.png"/>
+            </button>
+            <div id="myDropdown" class="dropdown-content">
+              <a class="b" href="/">Home</a>
+              <a class="b" href="/about">About</a>
+              <a class="b" href="/create">Create</a>
+            </div>
+          </div>
+
+
+
     </nav>
 </div>
+
+<script>
+    /* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("b");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
