@@ -124,6 +124,9 @@ nav a:hover{
     .mobile-nav{
         display: block;
     }
+    .form-container form{
+        width: 90%;
+    }
     
 }
 
@@ -153,6 +156,7 @@ nav a:hover{
     display: flex;
     justify-content: center;
     width: 100%;
+    margin-top: 50px;
 }
 form{
     display: flex;
