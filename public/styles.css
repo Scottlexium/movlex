@@ -1,8 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    transition: all .3s ease-in-out;
+}
 nav{
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    position: fixed;
+    background-color: white;
+    box-shadow: 2px 2px 20px 2px rgba(0,0,0,0.189);
+    height: 70px;
+}
+.nav-container{
+    width: 100%;
+    height: 70px;
+}
+.main-sec{
+    padding-top: 70px;
 }
 .logo{
     color: rgb(0, 41, 153);
@@ -24,8 +40,33 @@ nav a{
 nav a:hover{
     color: darkblue;
 }
+/* responsive designs */
+@media screen and (max-width: 600px) {
+    nav .nav-right{
+        display: none;
+    }
+    .mobile-nav{
+        display: block;
+    }
+    
+}
 
+@media screen and (min-width: 600px) {
+    .mobile-nav{
+        display: none;
+    }
+}
 
+@media screen and (max-width: 530px) {
+    .posts{
+        width: 90%;
+    }
+}
+@media screen and (min-width: 531px) {
+    .posts{
+        width: 60%;
+    }
+}
 
 /* form */
 
@@ -85,29 +126,33 @@ form button{
     text-overflow: ellipsis;
 
 }
+.blog-content-title{
+    text-align: center;
+}
 .items h3{
     font-size: 20px;
 }
 .items .snipper-p{
     font-size: 16px;
-    text-overflow: ellipsis;
+    width: 90%;
 }
 .posts{
-    width: 400px;
+    
     background-color: white;
     /* box-shadow: 0px 0px 40px 8px rgba(0,0,0,0.194); */
     padding: 20px 20px;
-    height: 100px;
+    height: auto;
     margin-top: 20px;
     display: flex;
+    gap: 20px;
     flex-direction: column;
     align-items:flex-start;
     justify-content: center;
     text-align: left;
     margin-left: 10px;
-    white-space: nowrap; 
-    overflow: hidden;
-    text-overflow: ellipsis; 
+    /* white-space: nowrap; 
+    overflow: hidden; */
+    text-overflow: ellipsis;
     position: relative;
 }
 
@@ -126,12 +171,11 @@ form button{
     position: absolute;
     border: solid 1px rgb(0, 41, 153);
     width: 8px;
-    height: 100px;
     background-color: rgb(0, 41, 153);
     left: 0;
-    top: 20%;
+    top: 10%;
     right: 0;
-    height: 70%;
+    height: 80%;
     margin-top: auto;
     margin-bottom: auto;
 }
@@ -142,4 +186,63 @@ form button{
     width: 100%;
     display: flex;
     justify-content: center;
+}
+.body-of-blog{
+    font-size: 18px;
+}
+.body-details{
+    width: 90%;
+}
+
+
+/* dialog styling */
+.canvas-dialog{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(14, 2, 2, 0.692);
+    position: absolute;
+    top: 9%;
+    display: none;
+}
+.dialog{
+    width: 300px;
+    display: flex;
+    background-color: white;
+    box-shadow: 2px 2px 20px 10px rgba(0,0,0,0.189);
+    border-radius: 15px;
+    height: 200px;
+    position: relative;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    gap: 40px;
+    transition: all .4s ease-in-out;
+}
+.dialog a{
+    font-size: 28px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+}
+.delete{
+    color: green;
+}
+.not-delete{
+    color: red;
+}
+
+#verify-delete{
+    background-color: none;
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 30px;
+    float: right;
+}
+#verify-delete img{
+    width: 60px;
 }

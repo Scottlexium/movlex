@@ -11,7 +11,8 @@
 
 <body>
     
-    <h1>Blog contents</h1>
+    <main class="main-sec">
+        <h1 class="blog-content-title">Blog contents</h1>
     <div class="blog-items">
         
         <blockquote class="items">
@@ -21,7 +22,7 @@
                     <% blogs.forEach(blog => { %>
                         <a href="/blogs/<%= blog.id %>" class="posts">
                         <h3><%= blog.title %> </h3>
-                        <p class="snipper-p"><%= blog.snippet %></p>
+                        <p style="width: 90%;" class="snipper-p"><%= blog.snippet %></p>
                         </a>
                     <% }) %>
                 <% }else { %>
@@ -30,5 +31,6 @@
             
         </blockquote>
     </div>
+    </main>
 </body>
 </html>

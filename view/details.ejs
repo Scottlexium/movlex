@@ -1,38 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles.css">
-    <title>Node js | <%= title %> </title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Node js | <%= title %></title>
     <%- include ('./partials/nav.ejs')%>
-</head>
+  </head>
 
-<body>
-                        <h3><%= blog.title %> </h3>
-                        <h1>Blog Content</h1>
-                        <p class=""><%= blog.body %></p>
-                        
-                        <a class="delete" data-doc="<%= blog.id %>">Delete</a>
+  <body>
+    <main class="body-details">
+        <h1 style="margin-top: 40px;margin-left: 20px;">Blog Content</h1>
+    <h3 style="margin-top: 20px; margin-bottom: 40px;margin-left: 20px; font-size: 32px;"><%= blog.title %></h3>
 
+    <p class="body-of-blog" style="text-indent: 40px;"><%= blog.body %></p>
+    <div class="canvas-dialog">
+      <div class="dialog">
+        <p style="position: absolute; top: 10%">
+          Are you sure you want to proceed?
+        </p>
+        <a class="delete" data-doc="<%= blog.id %>">Yes</a>
+        <a class="not-delete" href="/">No</a>
+      </div>
+    </div>
 
+    <button src="" id="verify-delete">
+      <img
+        src="https://img.icons8.com/plasticine/100/000000/filled-trash.png"
+      />
+    </button>
+    </main>
 
-                        <script>
-                            const trash = document.querySelector('a.delete');
-                            trash.addEventListener('click', (e) => {
-                                const endpoint = `/blogs/${trash.dataset.doc}`;
-                                fetch(endpoint, {
-                                method: 'DELETE'
-                                })
-                                .then((response) => response.json())
-                                    .then((data) => {
-                                        window.location.href = data.redirect
-                                    });
-                                }).catch((err) => console.log(err));
-                                </script>
-</body>
+    <script>
+      const show = document
+        .querySelector("#verify-delete")
+        .addEventListener("click", (e) => {
+          const dmodal = (document.querySelector(
+            ".canvas-dialog"
+          ).style.display = "flex");
+        });
 
-
-
+      const trash = document.querySelector("a.delete");
+      trash
+        .addEventListener("click", (e) => {
+          const endpoint = `/blogs/${trash.dataset.doc}`;
+          fetch(endpoint, {
+            method: "DELETE",
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              window.location.href = data.redirect;
+            });
+        })
+        .catch((err) => console.log(err));
+    </script>
+  </body>
 </html>
