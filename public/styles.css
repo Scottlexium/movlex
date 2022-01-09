@@ -363,6 +363,7 @@ form button{
     border-radius: 8px;
     margin-left: auto;
     margin-right: 70px;
+    margin-bottom: 40px;
 }
 .download__btn:hover{
     background-color: #0f5c7a;
