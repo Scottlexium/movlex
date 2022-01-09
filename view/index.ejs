@@ -5,17 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles.css">
-    <title>Node js | <%= title %> </title>
+    <title>Movlex | Home </title>
     <%- include ('./partials/nav.ejs')%>
 </head>
 
 <body>
     
     <main style="z-index: 1;" class="main-sec">
-        <h1 class="blog-content-title">Blog contents</h1>
-    <div class="blog-items">
+        <h1 class="blog-content-title">Select a Movie to Download</h1>
+        <div class="input__box"><input type="text" id="myInput" onkeyup="men()" placeholder="Search for movie.."></div>
+    <div class="blog-items" id="myUL">
         
-        <blockquote class="items">
+        <blockquote id="li" class="items">
             
             
                 <% if(blogs.length > 0) {%>
@@ -32,5 +33,26 @@
         </blockquote>
     </div>
     </main>
+    <script>
+        function men() {
+          // Declare variables
+          var input, filter, ul, li, a, i, txtValue;
+          input = document.getElementById('myInput');
+          filter = input.value.toUpperCase();
+          ul = document.getElementById("myUL");
+          li = ul.getElementsByTagName('a');
+        
+          // Loop through all list items, and hide those who don't match the search query
+          for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("h3")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              li[i].style.display = "";
+            } else {
+              li[i].style.display = "none";
+            }
+          }
+        }
+        </script>
 </body>
 </html>

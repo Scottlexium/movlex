@@ -5,16 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles.css" />
-    <title>Node js | <%= title %></title>
+    <title>Download || <%= blog.title %></title>
     <%- include ('./partials/nav.ejs')%>
   </head>
 
   <body>
     <main class="body-details">
-        <h1 style="margin-top: 40px;margin-left: 20px;">Blog Content</h1>
+        <!-- <h1 style="margin-top: 40px;margin-left: 20px;">Movie Info</h1> -->
     <h3 style="margin-top: 20px; margin-bottom: 40px;margin-left: 20px; font-size: 32px;"><%= blog.title %></h3>
 
+    <div class="img__prev__div">
+      <img class="movie__preview__img" src="<%= blog.download %>" alt="preview">
+    </div>
+
     <p class="body-of-blog" style="text-indent: 40px;"><%= blog.body %></p>
+    
+    <a class="download__btn" href="<%= blog.getfile %>">Download Now <img src="/download.png" alt=""></a>
     <div class="canvas-dialog">
       <div class="dialog">
         <p style="position: absolute; top: 10%">
@@ -25,11 +31,11 @@
       </div>
     </div>
 
-    <button src="" id="verify-delete">
+    <!-- <button src="" id="verify-delete">
       <img
-        src="https://img.icons8.com/plasticine/100/000000/filled-trash.png"
+        src="/filled-trash.png"
       />
-    </button>
+    </button> -->
     </main>
 
 

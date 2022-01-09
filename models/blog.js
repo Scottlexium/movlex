@@ -5,17 +5,28 @@ const Schema = mongoose.Schema;
 const blogSchema = new Schema({
     title:{
         type: String,
-        required: true
+        required: false
     },
     snippet:{
         type: String,
         required: true
     },
+    getfile:{
+        type: String,
+        required: true
+    },
+    download:{
+        type: String,
+        required: false,
+    },
     body:{
         type: String,
         required: true
-    }
+    },
+
+    
 }, {timestamps:true});
+
 
 const Blog = mongoose.model('blog', blogSchema);
 

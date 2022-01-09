@@ -1,37 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/styles.css" />
+    <link
+      href="https://unpkg.com/filepond/dist/filepond.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+      rel="stylesheet"
+    />
+    
     <%- include ('./partials/nav.ejs')%>
-</head>
-<body>
+  </head>
+  <body>
     <div class="form-container">
-        <form action="/blogs" method="POST">
+<!-- for the image -->
+      <form method="POST" action="/uploadfile" enctype="multipart/form-data">
+        <div class="input">
+          <label for="cover">Image Preview:</label>
+          <input class="filepond" type="file" placeholder="" name="uploadedFile" />
+        </div>
+        <img src="<%= url %>" style="width: 100px;" alt="image preview">
+        <p>Image uploaded to: <%= url %> | on the server</p>
+        <button type="submit">Upload</button>
+      </form>
+<!-- normal text upload -->
 
-            <div class="input">
-                <label for="">Blog title:</label>
-                <input type="text" placeholder="" name="title">
-            </div>
+      <form action="/blogs" method="POST">
+        <div class="input">
+          <label for="">Movie title:</label>
+          <input type="text" placeholder="Title of the movie" name="title" />
+        </div>
 
-            <div class="input">
-                <label for="">Snippet:</label>
-                <input type="text" placeholder="" name="snippet">
-                
-            </div>
-            
-            <div class="input">
-                <label for="">Blog Body:</label>
-                <textarea class="post-text" type="text" placeholder="" name="body"></textarea>
-            </div>
+        <div class="input">
+          <label for="">Snippet:</label>
+          <input type="text" placeholder="Type in something short " name="snippet" />
+        </div>
 
-            <div class="btn">
-                <button type="submit">Create Post</button>
-            </div>
-        </form>
+        <div class="input">
+          <label for="">Movie Body:</label>
+          <textarea
+            class="post-text"
+            type="text"
+            placeholder=""
+            name="body"
+          ></textarea>
+        </div>
+
+        <div class="input">
+          <label for="download">Movie Download Link</label>
+          <input class="firebaseurl" type="text" placeholder="" name="getfile" value="" />
+        </div>
+
+        <div class="input">
+          <label for="download">Image url from above invisible but here:</label>
+          <input hidden class="firebaseurl" type="text" placeholder="" name="download" value="<%= url %>" />
+        </div>
+        
+        <div class="btn">
+          <button type="submit">Create Post</button>
+        </div>
+      </form>
+
+      
     </div>
-</body>
+
+    
+    <!-- <script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+    <script>
+      FilePond.registerPlugin(FilePondPluginImagePreview,FilePondPluginFileEncode, FilePondPluginImageResize);
+      FilePond.parse(document.body);
+
+      const fireimg = document.querySelector('.firebaseurl');
+      fireimg.addEventListener('input', () =>{
+        let after = document.querySelector('.img-link').value = fireimg.value;
+        console.log(after);
+      })
+      fireimg.addEventListener('change', ()=>{
+        let after = document.querySelector('.img-link').value = fireimg.value;
+      })
+
+    </script> -->
+    
+  </body>
 </html>
